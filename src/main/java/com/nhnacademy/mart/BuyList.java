@@ -8,11 +8,18 @@ public class BuyList {
 
     // TODO add 메서드 생성
 
+    public void add(Item item) {
+        items.add(item);
+    }
 
     public static class Item {
         private final String name;
         private final int amount;
 
 
+        public Item(String name, int amount) {
+            this.name = name;
+            this.amount = amount;
+        }
     }
 }
