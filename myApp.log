@@ -1,2 +1,36 @@
-2023-09-02 23:33:25,771 [main] WARN c.n.m.FoodStand [FoodStand.java:62] - 구입품목의 수량이 매대에 무품수량보다 큼
-2023-09-02 23:33:25,774 [main] WARN c.n.m.FoodStand [FoodStand.java:55] - 매대에 없는 물품 구입
+2023-09-03 03:17:51,298 [main] INFO c.n.m.NhnMartShell [NhnMartShell.java:25] - NHN 마트에 오신 것을 환영합니다. 사고 싶은 물건을 골라주세요.
+2023-09-03 03:17:51,307 [main] INFO c.n.m.NhnMartShell [NhnMartShell.java:75] - 물건의 이름을 입력해 주세요 
+2023-09-03 03:17:52,892 [main] INFO c.n.m.NhnMartShell [NhnMartShell.java:79] - 수량을 입력해 주세요 
+2023-09-03 03:17:54,952 [main] WARN c.n.m.NhnMartShell [NhnMartShell.java:87] - 수량 입력은 숫자만 가능합니다.
+2023-09-03 03:17:54,952 [main] INFO c.n.m.NhnMartShell [NhnMartShell.java:79] - 수량을 입력해 주세요 
+2023-09-03 03:17:56,046 [main] WARN c.n.m.NhnMartShell [NhnMartShell.java:87] - 수량 입력은 숫자만 가능합니다.
+2023-09-03 03:17:56,046 [main] INFO c.n.m.NhnMartShell [NhnMartShell.java:79] - 수량을 입력해 주세요 
+2023-09-03 03:17:57,739 [main] INFO c.n.m.NhnMartShell [NhnMartShell.java:102] - 물건을 더 고르려면 1을 아니라면 0을 입력해 주세요
+2023-09-03 03:17:59,599 [main] WARN c.n.m.NhnMartShell [NhnMartShell.java:40] - ㅁ 은(는) 매대에 없는 물품입니다.
+2023-09-03 03:17:59,600 [main] INFO c.n.m.NhnMartShell [NhnMartShell.java:41] - 사고 싶은 물건을 다시 골라주세요
+2023-09-03 03:17:59,600 [main] INFO c.n.m.NhnMartShell [NhnMartShell.java:75] - 물건의 이름을 입력해 주세요 
+2023-09-03 03:18:01,448 [main] INFO c.n.m.NhnMartShell [NhnMartShell.java:79] - 수량을 입력해 주세요 
+2023-09-03 03:18:02,558 [main] INFO c.n.m.NhnMartShell [NhnMartShell.java:102] - 물건을 더 고르려면 1을 아니라면 0을 입력해 주세요
+2023-09-03 03:18:04,316 [main] WARN c.n.m.NhnMartShell [NhnMartShell.java:116] - 입력은 0 혹은 1만 가능합니다.
+2023-09-03 03:18:04,316 [main] INFO c.n.m.NhnMartShell [NhnMartShell.java:102] - 물건을 더 고르려면 1을 아니라면 0을 입력해 주세요
+2023-09-03 03:18:05,044 [main] WARN c.n.m.NhnMartShell [NhnMartShell.java:116] - 입력은 0 혹은 1만 가능합니다.
+2023-09-03 03:18:05,044 [main] INFO c.n.m.NhnMartShell [NhnMartShell.java:102] - 물건을 더 고르려면 1을 아니라면 0을 입력해 주세요
+2023-09-03 03:18:06,016 [main] WARN c.n.m.NhnMartShell [NhnMartShell.java:116] - 입력은 0 혹은 1만 가능합니다.
+2023-09-03 03:18:06,017 [main] INFO c.n.m.NhnMartShell [NhnMartShell.java:102] - 물건을 더 고르려면 1을 아니라면 0을 입력해 주세요
+2023-09-03 03:18:06,877 [main] WARN c.n.m.NhnMartShell [NhnMartShell.java:116] - 입력은 0 혹은 1만 가능합니다.
+2023-09-03 03:18:06,878 [main] INFO c.n.m.NhnMartShell [NhnMartShell.java:102] - 물건을 더 고르려면 1을 아니라면 0을 입력해 주세요
+2023-09-03 03:18:07,586 [main] WARN c.n.m.NhnMartShell [NhnMartShell.java:116] - 입력은 0 혹은 1만 가능합니다.
+2023-09-03 03:18:07,586 [main] INFO c.n.m.NhnMartShell [NhnMartShell.java:102] - 물건을 더 고르려면 1을 아니라면 0을 입력해 주세요
+2023-09-03 03:18:09,279 [main] INFO c.n.m.NhnMartShell [NhnMartShell.java:54] - 총 가격은 10000원 입니다
+2023-09-03 03:18:09,283 [main] INFO c.n.m.NhnMartShell [NhnMartShell.java:55] - 물건 구입 완료 | 결제 후 잔액 : 10000
+2023-09-03 03:18:14,309 [main] INFO c.n.m.NhnMartShell [NhnMartShell.java:25] - NHN 마트에 오신 것을 환영합니다. 사고 싶은 물건을 골라주세요.
+2023-09-03 03:18:14,318 [main] INFO c.n.m.NhnMartShell [NhnMartShell.java:75] - 물건의 이름을 입력해 주세요 
+2023-09-03 03:18:21,779 [main] INFO c.n.m.NhnMartShell [NhnMartShell.java:79] - 수량을 입력해 주세요 
+2023-09-03 03:18:22,600 [main] INFO c.n.m.NhnMartShell [NhnMartShell.java:102] - 물건을 더 고르려면 1을 아니라면 0을 입력해 주세요
+2023-09-03 03:18:23,401 [main] WARN c.n.m.NhnMartShell [NhnMartShell.java:40] - 양파 은(는) 매대에 수량이 부족합니다.
+2023-09-03 03:18:23,402 [main] INFO c.n.m.NhnMartShell [NhnMartShell.java:41] - 사고 싶은 물건을 다시 골라주세요
+2023-09-03 03:18:23,402 [main] INFO c.n.m.NhnMartShell [NhnMartShell.java:75] - 물건의 이름을 입력해 주세요 
+2023-09-03 03:18:31,657 [main] INFO c.n.m.NhnMartShell [NhnMartShell.java:79] - 수량을 입력해 주세요 
+2023-09-03 03:18:32,588 [main] INFO c.n.m.NhnMartShell [NhnMartShell.java:102] - 물건을 더 고르려면 1을 아니라면 0을 입력해 주세요
+2023-09-03 03:18:33,481 [main] INFO c.n.m.NhnMartShell [NhnMartShell.java:54] - 총 가격은 1000원 입니다
+2023-09-03 03:18:33,486 [main] INFO c.n.m.NhnMartShell [NhnMartShell.java:55] - 물건 구입 완료 | 결제 후 잔액 : 19000
