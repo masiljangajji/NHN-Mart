@@ -23,21 +23,18 @@ public class Customer {
         // basket에 음식 넣으럮임 , add Food 할꺼임
 
         // foodStand 에서 food를 찾을 꺼야
-            for (int i = 0; i < buyList.getItems().size(); i++) {
+        for (int i = 0; i < buyList.getItems().size(); i++) {
 
 
-                // food 찾아서 , 가격 넣는거 까지만
-                BuyList.Item item = buyList.getItems().get(i); // 내가 살 물건과 , 그 숫자가 있음
+            // food 찾아서 , 가격 넣는거 까지만
+            BuyList.Item item = buyList.getItems().get(i); // 내가 살 물건과 , 그 숫자가 있음
 
-                Food food = foodStand.findFood(item.getName());
+            int price = foodStand.findFood(item.getName(), item.getAmount());
 
-                basket.add(new Food(item.getName(), food.getPrice()*item.getAmount())); // 내가 살 물건과 , 그 가격을 장바구니에 넣어야 함
+            basket.add(new Food(item.getName(),
+                    price)); // 내가 살 물건과 , 그 가격을 장바구니에 넣어야 함 ,  ||||  사과 1000원 , 5개 사기 -> 사과 5000 으로 정리됨  , 품목 - 총 가격
 
-
-            }
         }
-
-
     }
 
 
