@@ -38,18 +38,23 @@ public class NhnMartShell {
                 seungJae.pickFoods(mart.getFoodStand());
             } catch (IllegalArgumentException e) {
                 System.out.print(e.getMessage());
-                System.out.println(" 사고 싶은 물건을 다시 골라주세요");
-                System.out.println();
+                System.out.println(" 사고 싶은 물건을 다시 골라주세요\n");
                 continue;
             }
 
             // 카운터에서 계산한다.
-            seungJae.payTox(mart.getCounter());
 
-            System.out.println(seungJae.getMoney());
+            try {
+                seungJae.payTox(mart.getCounter());
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+                System.out.println("사고 싶은 물건을 다시 골라주세요\n");
+                continue;
+            }
 
+            System.out.println("물건 구입 완료 | 남은 금액 : " + seungJae.getMoney());
 
-            System.out.println("쇼핑이 끝났습니다. ");
+            System.out.println("물건구입이 끝났습니다. ");
             break;
 
         }

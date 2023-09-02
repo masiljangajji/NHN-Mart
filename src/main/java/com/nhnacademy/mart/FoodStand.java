@@ -53,14 +53,14 @@ public class FoodStand {
 
             if (idxList.isEmpty()) {
                 logger.warn("매대에 없는 물품 구입");
-                throw new IllegalArgumentException(m.getKey() + "은(는) 매대에 없는 물품입니다");
+                throw new IllegalArgumentException(m.getKey() + " 은(는) 매대에 없는 물품입니다.");
             }
 
             //  내가 살 수량보다 적은거 예외처리
             if (idxList.size() < m.getValue()) {
                 // TODO 로그 찍기
                 logger.warn("구입품목의 수량이 매대에 무품수량보다 큼");
-                throw new IllegalArgumentException(m.getKey() + "은(는) 매대에 수량이 부족합니다.");
+                throw new IllegalArgumentException(m.getKey() + " 은(는) 매대에 수량이 부족합니다.");
             }
 
             for (int j = 0; j < idxList.size(); j++) {

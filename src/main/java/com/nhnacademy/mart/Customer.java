@@ -2,8 +2,12 @@ package com.nhnacademy.mart;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class Customer {
+
+    private static final Logger logger = LoggerFactory.getLogger(Customer.class);
 
     // 고객 구매 목록
     private final BuyList buyList;
@@ -69,6 +73,10 @@ public class Customer {
 
         for (int i = 0; i < basketList.size(); i++) {
             this.money = counter.pay(this.money, basketList.get(i).getPrice());
+            if (this.money < 0) {
+                logger.warn("사용자가 가진 돈보다 더 큰 식품 금액");
+                throw new IllegalArgumentException("식품 금액의 총 합이 사용자의 잔액보다 큽니다.");
+            }
         }
     }
 
