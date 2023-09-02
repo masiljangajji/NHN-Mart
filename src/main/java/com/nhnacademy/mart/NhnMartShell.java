@@ -21,9 +21,8 @@ public class NhnMartShell {
         NhnMart mart = new NhnMart();
         mart.prepareMart();
 
-        Scanner sc = new Scanner(System.in);
 
-        System.out.println("NHN 마트에 오신 것을 환영합니다. 사고 싶은 물건을 골라주세요.");
+        logger.info(Message.START.getMessage());
 
 
         while (true) {
@@ -36,11 +35,10 @@ public class NhnMartShell {
 
 
             try {
-
                 seungJae.pickFoods(mart.getFoodStand());
             } catch (IllegalArgumentException e) {
-                System.out.print(e.getMessage());
-                System.out.println(" 사고 싶은 물건을 다시 골라주세요\n");
+                logger.warn(e.getMessage());
+                logger.info(Message.RE_PICK_FOOD.getMessage());
                 continue;
             }
 
@@ -48,14 +46,13 @@ public class NhnMartShell {
             try {
                 seungJae.payTox(mart.getCounter());
             } catch (IllegalArgumentException e) {
-                System.out.println(e.getMessage());
-                System.out.println("사고 싶은 물건을 다시 골라주세요\n");
+                logger.warn(e.getMessage());
+                logger.info(Message.RE_PICK_FOOD.getMessage());
                 continue;
             }
 
-            System.out.println("물건 구입 완료 | 남은 금액 : " + seungJae.getMoney());
-
-            System.out.println("물건구입이 끝났습니다. ");
+            logger.info("총 가격은 " + (20000 - seungJae.getMoney()) + "원 입니다");
+            logger.info(Message.AFTER_PAY.getMessage() + seungJae.getMoney());
             break;
 
         }
@@ -75,36 +72,57 @@ public class NhnMartShell {
         String flag;
 
         while (true) {
-            System.out.print("물건의 이름을 입력해 주세요 : ");
+            logger.info(Message.INPUT_NAME.getMessage());
             name = sc.nextLine();
 
             while (true) {
-                System.out.print("수량을 입력해 주세요 : ");
+                logger.info(Message.INPUT_AMOUNT.getMessage());
                 try {
                     amount = sc.nextInt();
-                    if (amount == 0) {
-                        throw new IllegalArgumentException("수량 입력은 0보다 커야합니다.");
+                    if (amount <= 0) {
+                        throw new IllegalArgumentException();
                     }
                     break;
                 } catch (InputMismatchException e) {
-                    logger.warn("숫자가 아닌 수량 입력");
-                    System.out.println("수량 입력은 숫자만 가능합니다.");
+                    logger.warn(Message.INPUT_AMOUNT_NOT_NUMBER.getMessage());
                     sc.nextLine();
                 } catch (IllegalArgumentException e) {
-                    logger.warn("0보다 작은 수량 입력");
-                    System.out.println(e.getMessage());
+                    logger.warn(Message.INPUT_AMOUNT_LESS_ZERO.getMessage());
                 }
             }
 
 
             sc.nextLine();
             buyList.add(new BuyList.Item(name, amount));
-            System.out.println("물건을 더 고르려면 1을 아니라면 0을 입력해 주세요");
 
-            flag = sc.nextLine();
-            if (flag.equals("0")) {
+            boolean check;
+
+
+            while (true) {
+                logger.info(Message.MORE_INPUT.getMessage());
+
+                check = true;
+
+                try {
+                    flag = sc.nextLine();
+                    if (!flag.equals("1") && !flag.equals("0")) {
+                        throw new IllegalArgumentException();
+                    }
+                    if (flag.equals("0")) {
+                        check = false;
+                    }
+
+                } catch (IllegalArgumentException e) {
+                    logger.warn(Message.INPUT_ONLY_ONE_ZERO.getMessage());
+                    continue;
+                }
                 break;
             }
+
+            if (check == false) {
+                break;
+            }
+
         }
 
 

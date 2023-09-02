@@ -28,8 +28,7 @@ public class Counter {
         for (int i = 0; i < basketList.size(); i++) {
             totalBasketCost += basketList.get(i).getPrice();
             if (amountMoneny < totalBasketCost) {
-                logger.warn("사용자가 가진 돈보다 더 큰 장바구니 금액");
-                throw new IllegalArgumentException("장바구니 금액 총 합이 사용자의 잔액보다 큽니다.");
+                throw new IllegalArgumentException(Message.BASKET_COST_MORE_THAN_MONEY.getMessage());
             }
         }
 

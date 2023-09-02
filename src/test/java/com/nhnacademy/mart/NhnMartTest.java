@@ -187,7 +187,7 @@ class NhnMartTest {
         try {
             customer.payTox(nhnMart.getCounter());
         } catch (IllegalArgumentException e) {
-            Assertions.assertEquals(e.getMessage(), "식품 금액의 총 합이 사용자의 잔액보다 큽니다.");
+            Assertions.assertEquals(e.getMessage(), "장바구니 금액 총 합이 사용자의 잔액보다 큽니다.");
         }
 
 
