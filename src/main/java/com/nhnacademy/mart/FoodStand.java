@@ -26,19 +26,26 @@ public class FoodStand {
 
             Map.Entry<String, Integer> m = iterator.next();
 
-            int amount = m.getValue();
 
-            for (int i = 0; i < amount; i++) { // 사과 3개
+            ArrayList<Integer> idxList = new ArrayList<>();
+
+            for (int j = 0; j < foods.size(); j++) { // 사과 3개를 전부 픽해서 옴
+                if (foods.get(j).getName().equals(m.getKey())) {
+                    result.add(new Food(m.getKey(), foods.get(j).getPrice())); // 장바구니에 , 사과 | 사과의 가격  담아줄꺼임 ,
+                    idxList.add(j);
+                }
 
                 // TODO 수량보다 적으면 Exception 터치기
-
-                int idx = foods.indexOf(m.getKey()); // 사과 , 사과 없으면 -1 반환됨 이걸로 Exception 터치기
-
-                int foodCost = foods.get(idx).getPrice(); // 사과 가격
-
-                result.add(new Food(m.getKey(), foodCost)); // 장바구니에 , 사과 | 사과의 가격  담아줄꺼임 ,
-                foods.remove(idx); // 식품 매대에서 물건 삭제
+                if (idxList.size() == m.getValue()) {
+                    break;
+                }
             }
+
+            for (int j = 0; j < idxList.size(); j++) {
+                foods.remove(idxList.get(j)); // 식품 매대에서 물건 삭제
+            }
+
+
         }
 
         return result;

@@ -42,7 +42,7 @@ public class Customer {
             BuyList.Item item = buyList.getItems().get(i); // 내가 살 물건과 , 그 숫자가 있음
 
 
-            if (hashMap.get(item.getName()).equals(null)) {
+            if (hashMap.get(item.getName()) == null) {
                 hashMap.put(item.getName(), item.getAmount());
             } else {
                 hashMap.put(item.getName(), hashMap.get(item.getName()) + item.getAmount());
