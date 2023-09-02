@@ -72,17 +72,16 @@ public class Customer {
      *
      * @param counter 카운터를 의미합니다 , 계산은 카운ㅌ에서 발생합니다.
      */
-    public void payTox(Counter counter) {
+    public int payTox(Counter counter) {
 
-        ArrayList<Food> basketList = basket.getBasketList();
+        int amountMoneny = counter.pay(this.basket);
 
-        for (int i = 0; i < basketList.size(); i++) {
-            this.money = counter.pay(this.money, basketList.get(i).getPrice());
-            if (this.money < 0) {
-                logger.warn("사용자가 가진 돈보다 더 큰 식품 금액");
-                throw new IllegalArgumentException("식품 금액의 총 합이 사용자의 잔액보다 큽니다.");
-            }
+        if (amountMoneny < 0) {
+            logger.warn("사용자가 가진 돈보다 더 큰 식품 금액");
+            throw new IllegalArgumentException("식품 금액의 총 합이 사용자의 잔액보다 큽니다.");
         }
+
+        return amountMoneny;
     }
 
 
