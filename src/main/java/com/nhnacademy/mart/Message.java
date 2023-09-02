@@ -1,5 +1,8 @@
 package com.nhnacademy.mart;
 
+/**
+ * 출력할 문자열을 모아둔 enum Class.
+ */
 public enum Message {
 
 
