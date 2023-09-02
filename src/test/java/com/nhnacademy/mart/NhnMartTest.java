@@ -16,6 +16,8 @@ class NhnMartTest {
     BuyList buyList2;
     BuyList buyList3;
 
+    BuyList buyList4;
+
     Customer customer;
 
 
@@ -36,6 +38,9 @@ class NhnMartTest {
 
         buyList3 = new BuyList(); // 매대에 있는 것 보다 더 많은 물건
         buyList3.add(new BuyList.Item("양파", 100));
+
+        buyList4 = new BuyList();// 사용자 금액을 초과 할 경우
+        buyList4.add(new BuyList.Item("계란", 5));
 
     }
 
@@ -98,7 +103,7 @@ class NhnMartTest {
     }
 
     @Test
-    @DisplayName("pickFood postCondition Test 물품과 개수가 식품 매대와 충분한 경우")
+    @DisplayName("pickFood Test 물품과 개수가 식품 매대와 충분한 경우")
     void pickFoodTest() {
 
         customer = new Customer(buyList);
@@ -130,7 +135,7 @@ class NhnMartTest {
     }
 
     @Test
-    @DisplayName("pickFood postCondition Test 매대에 물건이 buyList에 보다 적은 경우")
+    @DisplayName("pickFood Test 매대에 물건이 buyList에 보다 적은 경우")
     void pickFoodTest2() {
 
         customer = new Customer(buyList3);
@@ -139,10 +144,17 @@ class NhnMartTest {
         Assertions.assertThrows(IllegalArgumentException.class,
                 () -> customer.pickFoods(nhnMart.getFoodStand()));
 
+
+        try {
+            customer.pickFoods(nhnMart.getFoodStand());
+        } catch (IllegalArgumentException e) {
+            Assertions.assertEquals(e.getMessage(), "양파 은(는) 매대에 수량이 부족합니다.");
+        }
+
     }
 
     @Test
-    @DisplayName("pickFood postCondition Test buyList에 물건이 매대에 없는 경우")
+    @DisplayName("pickFood Test buyList에 물건이 매대에 없는 경우")
     void pickFoodTest3() {
 
         customer = new Customer(buyList2);
@@ -150,6 +162,34 @@ class NhnMartTest {
 
         Assertions.assertThrows(IllegalArgumentException.class,
                 () -> customer.pickFoods(nhnMart.getFoodStand()));
+
+        try {
+            customer.pickFoods(nhnMart.getFoodStand());
+        } catch (IllegalArgumentException e) {
+            Assertions.assertEquals(e.getMessage(), "바나나 은(는) 매대에 없는 물품입니다.");
+        }
+
+
+    }
+
+    @Test
+    @DisplayName(" payTox Test  갖고 있는 금액을 초과할 경우")
+    void payToxTest() {
+
+        customer = new Customer(buyList4);
+        customer.bring(nhnMart.provideBasket());
+        customer.pickFoods(nhnMart.getFoodStand());
+
+        Assertions.assertThrows(IllegalArgumentException.class,
+                () -> customer.payTox(nhnMart.getCounter()));
+
+
+        try {
+            customer.payTox(nhnMart.getCounter());
+        } catch (IllegalArgumentException e) {
+            Assertions.assertEquals(e.getMessage(), "식품 금액의 총 합이 사용자의 잔액보다 큽니다.");
+        }
+
 
     }
 
