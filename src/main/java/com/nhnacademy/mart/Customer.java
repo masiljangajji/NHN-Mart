@@ -8,6 +8,10 @@ public class Customer {
     // 고객 구매 목록
     private final BuyList buyList;
 
+    public Basket getBasket() {
+        return basket;
+    }
+
     // 고객 장바구니
     private Basket basket;
 
@@ -28,7 +32,7 @@ public class Customer {
     }
 
     // TODO pickFoods 메서드 구현
-    public void pickFoods(FoodStand foodStand) {
+    public void pickFoods(FoodStand foodStand) { // 내가 고른 물품들 그대로 basket에 존재
 
         // basket에 음식 넣으럮임 , add Food 할꺼임
 
