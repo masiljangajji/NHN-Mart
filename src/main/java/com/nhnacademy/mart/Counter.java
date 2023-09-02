@@ -1,8 +1,10 @@
 package com.nhnacademy.mart;
 
+/**
+ * 계산이 일어나는 Calss 입니다.
+ */
 public class Counter {
 
-    // TODO pay 메서드 구현 (카운터에서 계산 처리 메서드)
     public int pay(int amount, int cost) {
         return amount - cost;
     }

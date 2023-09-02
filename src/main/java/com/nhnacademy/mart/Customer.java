@@ -5,18 +5,19 @@ import java.util.HashMap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * 장바구니에 물품 담기 및 계산을 하는 Class입니다.
+ */
 public class Customer {
 
     private static final Logger logger = LoggerFactory.getLogger(Customer.class);
 
-    // 고객 구매 목록
     private final BuyList buyList;
 
     public Basket getBasket() {
         return basket;
     }
 
-    // 고객 장바구니
     private Basket basket;
 
     private int money;
@@ -26,7 +27,6 @@ public class Customer {
         money = 20000;
     }
 
-    // 장바구니 챙기기
     public void bring(Basket basket) {
         this.basket = basket;
     }
@@ -35,19 +35,21 @@ public class Customer {
         return this.money;
     }
 
-    // TODO pickFoods 메서드 구현
-    public void pickFoods(FoodStand foodStand) { // 내가 고른 물품들 그대로 basket에 존재
+    /**
+     * buyList에 있는 물품들을 hashmap으로 정리합니다 , findFood 메서드 통해 장바구니를 채웁니다.
+     *
+     * @param foodStand 사용자의 buyList에 있는 물품들을 의미 합니다.
+     */
 
-        // basket에 음식 넣으럮임 , add Food 할꺼임
+    public void pickFoods(FoodStand foodStand) {
 
-        // foodStand 에서 food를 찾을 꺼야
 
         HashMap<String, Integer> hashMap = new HashMap<>();
 
         for (int i = 0; i < buyList.getItems().size(); i++) {
 
             // food 찾아서 , 가격 넣는거 까지만
-            BuyList.Item item = buyList.getItems().get(i); // 내가 살 물건과 , 그 숫자가 있음
+            BuyList.Item item = buyList.getItems().get(i);
 
 
             if (hashMap.get(item.getName()) == null) {
@@ -65,8 +67,11 @@ public class Customer {
     }
 
 
-    // TODO payTox 메서드 구현
-
+    /**
+     * 장바구니에 담은 물건들을 순차적으로 계산합니다.
+     *
+     * @param counter 카운터를 의미합니다 , 계산은 카운ㅌ에서 발생합니다.
+     */
     public void payTox(Counter counter) {
 
         ArrayList<Food> basketList = basket.getBasketList();

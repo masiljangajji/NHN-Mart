@@ -5,11 +5,18 @@ import java.util.Scanner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * Main이 되는 Class 입니다.
+ * 전체적인 게임의 진행이 이루어 집니다.
+ * 발생할 수 있는 Exception : {IllegalArgumentException} , {}InputMismatchException}.
+ */
 public class NhnMartShell {
 
     private static final Logger logger = LoggerFactory.getLogger(NhnMartShell.class);
 
-
+    /**
+     * main 메서드 입니다.
+     */
     public static void main(String[] args) {
         NhnMart mart = new NhnMart();
         mart.prepareMart();
@@ -23,18 +30,13 @@ public class NhnMartShell {
 
             BuyList buyList = inputBuyListFromShell();
 
-            // TODO 본인이름 영어로 변수명 작성!
-            // 본인이름을 각자 맞게 영어로 변경
-            // 홍길동 학생
-            // -> hongGilDong or gilDong
-
             Customer seungJae = new Customer(buyList);
 
-            // 장바구니를 챙긴다.
             seungJae.bring(mart.provideBasket());
 
-            // 식품을 담는다.
+
             try {
+
                 seungJae.pickFoods(mart.getFoodStand());
             } catch (IllegalArgumentException e) {
                 System.out.print(e.getMessage());
@@ -43,7 +45,6 @@ public class NhnMartShell {
             }
 
             // 카운터에서 계산한다.
-
             try {
                 seungJae.payTox(mart.getCounter());
             } catch (IllegalArgumentException e) {
@@ -63,7 +64,6 @@ public class NhnMartShell {
     }
 
     private static BuyList inputBuyListFromShell() {
-        // TODO Scanner 입력을 받아 buyList 만들기
 
 
         Scanner sc = new Scanner(System.in);

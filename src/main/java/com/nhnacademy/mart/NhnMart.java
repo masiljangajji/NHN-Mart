@@ -1,6 +1,10 @@
 package com.nhnacademy.mart;
 
+/**
+ * 마트의 식품 매대가 정의됩니다. 식품 매대는 foods의 list로 정의됩니다.
+ */
 public class NhnMart {
+
 
     private final FoodStand foodStand = new FoodStand();
     private final Counter counter = new Counter();

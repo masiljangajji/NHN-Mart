@@ -1,5 +1,8 @@
 package com.nhnacademy.mart;
 
+/**
+ * 식품을 정의홥니다 , 이름과 가격으로 정의됩니다.
+ */
 public class Food {
 
     private final String name;

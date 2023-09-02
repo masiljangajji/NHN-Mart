@@ -2,11 +2,12 @@ package com.nhnacademy.mart;
 
 import java.util.ArrayList;
 
+/**
+ * 장바구니를 정의하는 Class 입니다.
+ */
 public class BuyList {
 
     private final ArrayList<Item> items = new ArrayList<>();
-
-    // TODO add 메서드 생성
 
     public void add(Item item) {
         items.add(item);
@@ -16,6 +17,9 @@ public class BuyList {
         return items;
     }
 
+    /**
+     * Item을 정의합니다 , {이름|수량} 으로 정의됩니다.
+     */
     public static class Item {
         private final String name;
         private final int amount;
