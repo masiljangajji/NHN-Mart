@@ -37,7 +37,6 @@ class NhnMartTest {
         buyList3 = new BuyList(); // 매대에 있는 것 보다 더 많은 물건
         buyList3.add(new BuyList.Item("양파", 100));
 
-
     }
 
     @Test
@@ -127,6 +126,30 @@ class NhnMartTest {
         }
 
         Assertions.assertEquals(count, myBasket.size());
+
+    }
+
+    @Test
+    @DisplayName("pickFood postCondition Test 매대에 물건이 buyList에 보다 적은 경우")
+    void pickFoodTest2() {
+
+        customer = new Customer(buyList3);
+        customer.bring(nhnMart.provideBasket());
+
+        Assertions.assertThrows(IllegalArgumentException.class,
+                () -> customer.pickFoods(nhnMart.getFoodStand()));
+
+    }
+
+    @Test
+    @DisplayName("pickFood postCondition Test buyList에 물건이 매대에 없는 경우")
+    void pickFoodTest3() {
+
+        customer = new Customer(buyList2);
+        customer.bring(nhnMart.provideBasket());
+
+        Assertions.assertThrows(IllegalArgumentException.class,
+                () -> customer.pickFoods(nhnMart.getFoodStand()));
 
     }
 
