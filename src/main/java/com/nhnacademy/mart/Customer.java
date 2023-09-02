@@ -74,14 +74,8 @@ public class Customer {
      */
     public int payTox(Counter counter) {
 
-        int amountMoneny = counter.pay(this.basket);
-
-        if (amountMoneny < 0) {
-            logger.warn("사용자가 가진 돈보다 더 큰 식품 금액");
-            throw new IllegalArgumentException("식품 금액의 총 합이 사용자의 잔액보다 큽니다.");
-        }
-
-        return amountMoneny;
+        this.money -= counter.pay(this.money, this.basket);
+        return this.money;
     }
 
 
