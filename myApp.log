@@ -1,0 +1,2 @@
+2023-09-02 23:33:25,771 [main] WARN c.n.m.FoodStand [FoodStand.java:62] - 구입품목의 수량이 매대에 무품수량보다 큼
+2023-09-02 23:33:25,774 [main] WARN c.n.m.FoodStand [FoodStand.java:55] - 매대에 없는 물품 구입
