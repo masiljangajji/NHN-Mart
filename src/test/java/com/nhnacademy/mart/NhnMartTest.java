@@ -193,5 +193,19 @@ class NhnMartTest {
 
     }
 
+    @Test
+    @DisplayName(" payTox Test  결제한 후 나머지 금액 확인")
+    void payToxTest2() {
+
+        customer = new Customer(buyList);
+        customer.bring(nhnMart.provideBasket());
+        customer.pickFoods(nhnMart.getFoodStand());
+        customer.payTox(nhnMart.getCounter());
+
+        Assertions.assertEquals(customer.getMoney(), 13000);
+
+
+    }
+
 
 }
