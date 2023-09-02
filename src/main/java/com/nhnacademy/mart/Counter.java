@@ -11,7 +11,13 @@ public class Counter {
 
     private static final Logger logger = LoggerFactory.getLogger(Counter.class);
 
-
+    /**
+     * 장바구니에 담은 물건을 계산하는 메서드 .
+     *
+     * @param amountMoneny 사용자가 가진 돈을 의미함.
+     * @param basket       장바구니를 의미함.
+     * @return 장바구니 금액을 제외한 돈을 반환 , 장바구니에 담은 금액이 더 클 경우 예외처리
+     */
     public int pay(int amountMoneny, Basket basket) {
 
         ArrayList<Food> basketList = basket.getBasketList();
@@ -27,7 +33,7 @@ public class Counter {
             }
         }
 
-        return totalBasketCost;
+        return amountMoneny - totalBasketCost;
     }
 
 }

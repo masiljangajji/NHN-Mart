@@ -74,7 +74,7 @@ public class Customer {
      */
     public int payTox(Counter counter) {
 
-        this.money -= counter.pay(this.money, this.basket);
+        this.money = counter.pay(this.money, this.basket);
         return this.money;
     }
 
