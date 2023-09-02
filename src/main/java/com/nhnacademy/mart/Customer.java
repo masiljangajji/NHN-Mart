@@ -11,13 +11,20 @@ public class Customer {
     // 고객 장바구니
     private Basket basket;
 
+    private int money;
+
     public Customer(BuyList buyList) {
         this.buyList = buyList;
+        money = 20000;
     }
 
     // 장바구니 챙기기
     public void bring(Basket basket) {
         this.basket = basket;
+    }
+
+    public int getMoney() {
+        return this.money;
     }
 
     // TODO pickFoods 메서드 구현
@@ -51,6 +58,15 @@ public class Customer {
 
 
     // TODO payTox 메서드 구현
+
+    public void payTox(Counter counter) {
+
+        ArrayList<Food> basketList = basket.getBasketList();
+
+        for (int i = 0; i < basketList.size(); i++) {
+            this.money = counter.pay(this.money, basketList.get(i).getPrice());
+        }
+    }
 
 
 }
